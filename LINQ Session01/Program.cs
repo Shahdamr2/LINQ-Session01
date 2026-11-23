@@ -30,11 +30,18 @@ namespace LINQ_Session01
 
             #endregion
             #region Question03
-            var result = ProductList.OrderBy(p => p.UnitPrice);
+            //var result = ProductList.OrderBy(p => p.UnitPrice);
+            //foreach (var product in result)
+            //{
+            //    Console.WriteLine($"Product Name : {product.ProductName} , Product Price : {product.UnitPrice}$");
+            //}
+            #endregion
+            #region Question04
+            var result = ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
             foreach (var product in result)
             {
-                Console.WriteLine($"Product Name : {product.ProductName} , Product Price : {product.UnitPrice}$");
-            } 
+                Console.WriteLine($"Name: {product.ProductName}, Price: {product.UnitPrice}$");
+            }
             #endregion
 
         }
