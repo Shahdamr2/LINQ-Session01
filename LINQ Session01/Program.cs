@@ -18,17 +18,25 @@ namespace LINQ_Session01
 
             //foreach (var product in result)
             //{
-            //    Console.WriteLine($"Name: {product.ProductName}, Price: {product.UnitPrice}");
+            //    Console.WriteLine($"Name: {product.ProductName}, Price: {product.UnitPrice}$");
             //}
             #endregion
             #region Question02
-            var result = ProductList.Select(p => p.ProductName);
-            foreach (var name in result)
-            {
-                Console.WriteLine(name);
-            }
+            //var result = ProductList.Select(p => p.ProductName);
+            //foreach (var name in result)
+            //{
+            //    Console.WriteLine(name);
+            //}
 
             #endregion
+            #region Question03
+            var result = ProductList.OrderBy(p => p.UnitPrice);
+            foreach (var product in result)
+            {
+                Console.WriteLine($"Product Name : {product.ProductName} , Product Price : {product.UnitPrice}$");
+            } 
+            #endregion
+
         }
     }
 }
