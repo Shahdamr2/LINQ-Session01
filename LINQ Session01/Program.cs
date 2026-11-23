@@ -9,9 +9,9 @@ namespace LINQ_Session01
             #region Question01
             var ProductList = new[]
             {
-                new  { ProductName = "Salmon", Category = "Seafood", UnitPrice = 25 },
-                new  { ProductName = "Chai", Category = "Beverages", UnitPrice = 18 },
-                new  { ProductName = "Crab", Category = "Seafood", UnitPrice = 30 }
+                new  { ProductName = "Salmon", Category = "Seafood", UnitPrice = 25,UnitsInStock = 40 },
+                new  { ProductName = "Condiments", Category = "Beverages", UnitPrice = 18,UnitsInStock=33 },
+                new  { ProductName = "Crab", Category = "Seafood", UnitPrice = 30,UnitsInStock=20 }
             };
 
             //var result = ProductList.Where(p => p.Category == "Seafood");
@@ -37,10 +37,17 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question04
-            var result = ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+            //var result = ProductList.Where(p => p.UnitPrice >= 10 && p.UnitPrice <= 30);
+            //foreach (var product in result)
+            //{
+            //    Console.WriteLine($"Name: {product.ProductName}, Price: {product.UnitPrice}$");
+            //}
+            #endregion
+            #region Question05
+            var result = ProductList.Where(p => p.ProductName == "Condiments" && p.UnitsInStock > 0);
             foreach (var product in result)
             {
-                Console.WriteLine($"Name: {product.ProductName}, Price: {product.UnitPrice}$");
+                Console.WriteLine($"Name: {product.ProductName}, Stock: {product.UnitsInStock}");
             }
             #endregion
 
