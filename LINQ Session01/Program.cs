@@ -44,10 +44,25 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question05
-            var result = ProductList.Where(p => p.ProductName == "Condiments" && p.UnitsInStock > 0);
-            foreach (var product in result)
+            //var result = ProductList.Where(p => p.ProductName == "Condiments" && p.UnitsInStock > 0);
+            //foreach (var product in result)
+            //{
+            //    Console.WriteLine($"Name: {product.ProductName}, Stock: {product.UnitsInStock}");
+            //}
+            #endregion
+            #region Question06
+            var result =ProductList.Select(p => new
             {
-                Console.WriteLine($"Name: {product.ProductName}, Stock: {product.UnitsInStock}");
+                Name = p.ProductName,
+                Price = p.UnitPrice,
+                StockStatus = p.UnitsInStock >0 ? "Available" : "Out of Stock"
+
+
+            });
+            foreach (var item in result)
+            {
+                Console.WriteLine(
+                    $"Name: {item.Name}, Price: {item.Price}, Status: {item.StockStatus}");
             }
             #endregion
 
