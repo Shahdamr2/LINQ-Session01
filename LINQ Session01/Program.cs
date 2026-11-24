@@ -66,11 +66,29 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question07
-            var result = ProductList.Select((p, index) => $"{index + 1}. {p.ProductName}");
-            foreach(var item in result)
+            //var result = ProductList.Select((p, index) => $"{index + 1}. {p.ProductName}");
+            //foreach(var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+            #region Question09
+            var result = ProductList.Where(p => p.Category == "Beverages").OrderByDescending(p => p.UnitsInStock)
+                .Select(p => new
+                {
+                    p.ProductName,
+                    p.UnitsInStock
+                });
+
+            foreach (var item in result)
             {
-                Console.WriteLine(item);
+                Console.WriteLine($"{item.ProductName} - {item.UnitsInStock}");
             }
+
+            #endregion
+
+            #region Question11
+
             #endregion
 
         }
