@@ -51,18 +51,25 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question06
-            var result =ProductList.Select(p => new
-            {
-                Name = p.ProductName,
-                Price = p.UnitPrice,
-                StockStatus = p.UnitsInStock >0 ? "Available" : "Out of Stock"
+            //var result =ProductList.Select(p => new
+            //{
+            //    Name = p.ProductName,
+            //    Price = p.UnitPrice,
+            //    StockStatus = p.UnitsInStock >0 ? "Available" : "Out of Stock"
 
 
-            });
-            foreach (var item in result)
+            //});
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(
+            //        $"Name: {item.Name}, Price: {item.Price}, Status: {item.StockStatus}");
+            //}
+            #endregion
+            #region Question07
+            var result = ProductList.Select((p, index) => $"{index + 1}. {p.ProductName}");
+            foreach(var item in result)
             {
-                Console.WriteLine(
-                    $"Name: {item.Name}, Price: {item.Price}, Status: {item.StockStatus}");
+                Console.WriteLine(item);
             }
             #endregion
 
