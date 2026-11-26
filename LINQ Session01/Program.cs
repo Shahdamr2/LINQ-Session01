@@ -73,14 +73,14 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question08
-            var result = ProductList
-            .OrderBy(p => p.Category)
-            .ThenByDescending(p => p.UnitPrice);
+            //var result = ProductList
+            //.OrderBy(p => p.Category)
+            //.ThenByDescending(p => p.UnitPrice);
 
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item.Category} - {item.ProductName} - {item.UnitPrice}");
-            }
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.Category} - {item.ProductName} - {item.UnitPrice}");
+            //}
             #endregion
             #region Question09
             //var result = ProductList.Where(p => p.Category == "Beverages").OrderByDescending(p => p.UnitsInStock)
@@ -95,6 +95,43 @@ namespace LINQ_Session01
             //    Console.WriteLine($"{item.ProductName} - {item.UnitsInStock}");
             //}
 
+            #endregion
+            #region Question10
+            var customers = new[]
+            {
+                new
+                {
+                    CustomerID = "C001",
+                    Orders = new[]
+                    {
+                        new { OrderDate = new DateTime(1996, 5, 10) },
+                        new { OrderDate = new DateTime(1997, 8, 15) }
+                    }
+                },
+                new
+                {
+                    CustomerID = "C002",
+                    Orders = new[]
+                    {
+                        new { OrderDate = new DateTime(1998, 3, 20) }
+                    }
+                }
+            };
+
+            var result =
+                from c in customers
+                from o in c.Orders
+                where o.OrderDate >= new DateTime(1997, 1, 1)
+                select new
+                {
+                    c.CustomerID,
+                    o.OrderDate
+                };
+
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.CustomerID} - {item.OrderDate}");
+            }
             #endregion
             #region Question11
             //var result = ProductList.Select((p, index) => new
