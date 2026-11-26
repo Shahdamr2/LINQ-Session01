@@ -11,7 +11,7 @@ namespace LINQ_Session01
             {
                 new  { ProductName = "Salmon", Category = "Seafood", UnitPrice = 25,UnitsInStock = 40 },
                 new  { ProductName = "Mustard", Category = "Condiments", UnitPrice = 18,UnitsInStock=33 },
-                new  { ProductName = "Crab", Category = "Seafood", UnitPrice = 30,UnitsInStock=20 }
+                new  { ProductName = "Chai", Category = "Beverages", UnitPrice = 30,UnitsInStock=20 }
             };
 
             //var result = ProductList.Where(p => p.Category == "Seafood");
@@ -44,11 +44,11 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question05
-            var result = ProductList.Where(p => p.Category == "Condiments" && p.UnitsInStock > 0);
-            foreach (var product in result)
-            {
-                Console.WriteLine($"Name: {product.ProductName}, Stock: {product.UnitsInStock}");
-            }
+            //var result = ProductList.Where(p => p.Category == "Condiments" && p.UnitsInStock > 0);
+            //foreach (var product in result)
+            //{
+            //    Console.WriteLine($"Name: {product.ProductName}, Stock: {product.UnitsInStock}");
+            //}
             #endregion
             #region Question06
             //var result =ProductList.Select(p => new
@@ -146,11 +146,11 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question12
-            string[] Arr =
-            {
-                "aPPLE", "AbAcUs", "bRaNcH",
-                "BlUeBeRrY", "ClOvEr", "cHeRry", "kiwi"
-            };
+            //string[] Arr =
+            //{
+            //    "aPPLE", "AbAcUs", "bRaNcH",
+            //    "BlUeBeRrY", "ClOvEr", "cHeRry",
+            //};
 
             //var result = Arr
             //    .OrderBy(word => word.Length)
@@ -162,16 +162,21 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question13
+            string[] Arr =
+            {
+                "aPPLE", "AbAcUs", "bRaNcH",
+                "BlUeBeRrY", "ClOvEr", "cHeRry", "kiwi"
+            };
 
-            //var result13 = Arr
-            //    .Where(word => word.Length > 1 && char.ToLower(word[1]) == 'i')
-            //    .Reverse()
-            //    .ToList();
+            var result13 = Arr
+                .Where(word => word.Length > 1 && char.ToLower(word[1]) == 'i')
+                .Reverse()
+                .ToList();
 
-            //foreach (var word in result13)
-            //{
-            //    Console.WriteLine(word);
-            //}
+            foreach (var word in result13)
+            {
+                Console.WriteLine(word);
+            }
 
             #endregion
 
