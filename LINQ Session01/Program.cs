@@ -10,7 +10,7 @@ namespace LINQ_Session01
             var ProductList = new[]
             {
                 new  { ProductName = "Salmon", Category = "Seafood", UnitPrice = 25,UnitsInStock = 40 },
-                new  { ProductName = "Condiments", Category = "Beverages", UnitPrice = 18,UnitsInStock=33 },
+                new  { ProductName = "Mustard", Category = "Condiments", UnitPrice = 18,UnitsInStock=33 },
                 new  { ProductName = "Crab", Category = "Seafood", UnitPrice = 30,UnitsInStock=20 }
             };
 
@@ -44,11 +44,11 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question05
-            //var result = ProductList.Where(p => p.ProductName == "Condiments" && p.UnitsInStock > 0);
-            //foreach (var product in result)
-            //{
-            //    Console.WriteLine($"Name: {product.ProductName}, Stock: {product.UnitsInStock}");
-            //}
+            var result = ProductList.Where(p => p.Category == "Condiments" && p.UnitsInStock > 0);
+            foreach (var product in result)
+            {
+                Console.WriteLine($"Name: {product.ProductName}, Stock: {product.UnitsInStock}");
+            }
             #endregion
             #region Question06
             //var result =ProductList.Select(p => new
@@ -163,15 +163,15 @@ namespace LINQ_Session01
             #endregion
             #region Question13
 
-            var result13 = Arr
-                .Where(word => word.Length > 1 && char.ToLower(word[1]) == 'i')
-                .Reverse()
-                .ToList();
+            //var result13 = Arr
+            //    .Where(word => word.Length > 1 && char.ToLower(word[1]) == 'i')
+            //    .Reverse()
+            //    .ToList();
 
-            foreach (var word in result13)
-            {
-                Console.WriteLine(word);
-            }
+            //foreach (var word in result13)
+            //{
+            //    Console.WriteLine(word);
+            //}
 
             #endregion
 
