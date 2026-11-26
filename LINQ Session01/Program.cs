@@ -72,6 +72,16 @@ namespace LINQ_Session01
             //    Console.WriteLine(item);
             //}
             #endregion
+            #region Question08
+            var result = ProductList
+            .OrderBy(p => p.Category)
+            .ThenByDescending(p => p.UnitPrice);
+
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.Category} - {item.ProductName} - {item.UnitPrice}");
+            }
+            #endregion
             #region Question09
             //var result = ProductList.Where(p => p.Category == "Beverages").OrderByDescending(p => p.UnitsInStock)
             //    .Select(p => new
@@ -87,16 +97,16 @@ namespace LINQ_Session01
 
             #endregion
             #region Question11
-            var result = ProductList.Select((p, index) => new
-            {
-                Position = index + 1,
-                p.ProductName
-            });
+            //var result = ProductList.Select((p, index) => new
+            //{
+            //    Position = index + 1,
+            //    p.ProductName
+            //});
 
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item.Position}. {item.ProductName}");
-            }
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.Position}. {item.ProductName}");
+            //}
             #endregion
 
         }
