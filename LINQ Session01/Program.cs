@@ -97,41 +97,41 @@ namespace LINQ_Session01
 
             #endregion
             #region Question10
-            var customers = new[]
-            {
-                new
-                {
-                    CustomerID = "C001",
-                    Orders = new[]
-                    {
-                        new { OrderDate = new DateTime(1996, 5, 10) },
-                        new { OrderDate = new DateTime(1997, 8, 15) }
-                    }
-                },
-                new
-                {
-                    CustomerID = "C002",
-                    Orders = new[]
-                    {
-                        new { OrderDate = new DateTime(1998, 3, 20) }
-                    }
-                }
-            };
+            //var customers = new[]
+            //{
+            //    new
+            //    {
+            //        CustomerID = "C001",
+            //        Orders = new[]
+            //        {
+            //            new { OrderDate = new DateTime(1996, 5, 10) },
+            //            new { OrderDate = new DateTime(1997, 8, 15) }
+            //        }
+            //    },
+            //    new
+            //    {
+            //        CustomerID = "C002",
+            //        Orders = new[]
+            //        {
+            //            new { OrderDate = new DateTime(1998, 3, 20) }
+            //        }
+            //    }
+            //};
 
-            var result =
-                from c in customers
-                from o in c.Orders
-                where o.OrderDate >= new DateTime(1997, 1, 1)
-                select new
-                {
-                    c.CustomerID,
-                    o.OrderDate
-                };
+            //var result =
+            //    from c in customers
+            //    from o in c.Orders
+            //    where o.OrderDate >= new DateTime(1997, 1, 1)
+            //    select new
+            //    {
+            //        c.CustomerID,
+            //        o.OrderDate
+            //    };
 
-            foreach (var item in result)
-            {
-                Console.WriteLine($"{item.CustomerID} - {item.OrderDate}");
-            }
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine($"{item.CustomerID} - {item.OrderDate}");
+            //}
             #endregion
             #region Question11
             //var result = ProductList.Select((p, index) => new
@@ -144,6 +144,22 @@ namespace LINQ_Session01
             //{
             //    Console.WriteLine($"{item.Position}. {item.ProductName}");
             //}
+            #endregion
+            #region Question12
+            string[] Arr =
+            {
+                "aPPLE", "AbAcUs", "bRaNcH",
+                "BlUeBeRrY", "ClOvEr", "cHeRry"
+            };
+
+            var result = Arr
+                .OrderBy(word => word.Length)
+                .ThenBy(word => word, StringComparer.OrdinalIgnoreCase);
+
+            foreach (var word in result)
+            {
+                Console.WriteLine(word);
+            }
             #endregion
 
         }
