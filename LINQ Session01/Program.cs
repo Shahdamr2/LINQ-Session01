@@ -146,11 +146,10 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question12
-
             string[] Arr =
             {
                 "aPPLE", "AbAcUs", "bRaNcH",
-                "BlUeBeRrY", "ClOvEr", "cHeRry",
+                "BlUeBeRrY", "ClOvEr", "cHeRry", "kiwi"
             };
 
             //string[] Arr =
@@ -169,7 +168,6 @@ namespace LINQ_Session01
             //}
             #endregion
             #region Question13
-            
 
             var result13 = Arr
                 .Where(word => word.Length > 1 && char.ToLower(word[1]) == 'i')
